@@ -12,9 +12,12 @@ Open in visual studio or run with:
 
 Send a message by calling the applications REST API. Either import the postman collection in this repo or use the following commands.
 ```sh
-curl -s  http://localhost:9000/message \
--H "Content-Type: application/json" \
---data '{"message": "Message"}'
+curl http://localhost:9000/message -H "Content-Type: application/json" --data '{"message": "Message"}'
+```
+
+powershell:
+```sh
+Invoke-RestMethod -Uri 'http://localhost:9000/message' -Method Post -Headers @{"Content-Type" = "application/json"} -Body "{`"message`": `"test2`"}"
 ```
 
 Send an async message:
@@ -23,4 +26,8 @@ Send an async message:
 curl -s  http://localhost:9000/message/async \
 -H "Content-Type: application/json" \
 --data '{"message": "Message"}'
+```
+
+```sh
+Invoke-RestMethod -Uri 'http://localhost:9000/message/async' -Method Post -Headers @{"Content-Type" = "application/json"} -Body "{`"message`": `"test2`"}"
 ```
